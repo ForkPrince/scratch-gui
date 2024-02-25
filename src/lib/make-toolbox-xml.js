@@ -359,7 +359,11 @@ const events = function (isInitialSetup, isStage, targetId, colors) {
         ` : `
             <block type="event_whenthisspriteclicked"/>
         `}
-        <block type="event_whentouchingobject"/>
+        <block type="event_whentouchingobject">
+            <value name="TOUCHINGOBJECTMENU">
+                <shadow type="sensing_touchingobjectmenu"></shadow>
+            </value>
+        </block>
         <block type="event_whenbackdropswitchesto">
         </block>
         ${blockSeparator}
