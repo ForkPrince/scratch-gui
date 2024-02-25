@@ -319,22 +319,22 @@ export default [
         helpLink: 'https://scratch.mit.edu/vernier'
     },
     {
-        name: 'Hidden blocks',
-        extensionId: 'hiddenblocks',
+        name: 'Extra blocks',
+        extensionId: 'extrablocks',
         collaborator: 'Prinky',
         iconURL: gdxforIconURL,
         insetIconURL: gdxforInsetIconURL,
         description: (
             <FormattedMessage
-                defaultMessage="Use hidden scratch blocks."
-                description="Use hidden scratch blocks"
-                id="gui.extension.hiddenblocks.description"
+                defaultMessage="Some useful extra blocks for scratch."
+                description="Some useful extra blocks for scratch."
+                id="gui.extension.extrablocks.description"
             />
         ),
-        featured: true,
+        featured: false,
         disabled: false,
-        internetConnectionRequired: true,
+        internetConnectionRequired: false,
         bluetoothRequired: false,
-        helpLink: 'https://scratch.mit.edu/wedo'
+        helpLink: 'https://scratch.serversmp.xyz/'
     }
 ];

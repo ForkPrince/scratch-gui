@@ -426,6 +426,7 @@ const control = function (isInitialSetup, isStage, targetId, colors) {
         <block type="control_if_else"/>
         <block id="wait_until" type="control_wait_until"/>
         <block id="repeat_until" type="control_repeat_until"/>
+        <block type="control_while"/>
         ${blockSeparator}
         <block type="control_stop"/>
         ${blockSeparator}
@@ -444,6 +445,10 @@ const control = function (isInitialSetup, isStage, targetId, colors) {
             </block>
             <block type="control_delete_this_clone"/>
         `}
+        ${categorySeparator}
+        <block type="control_get_counter"/>
+        <block type="control_incr_counter"/>
+        <block type="control_clear_counter"/>
         ${categorySeparator}
     </category>
     `;
