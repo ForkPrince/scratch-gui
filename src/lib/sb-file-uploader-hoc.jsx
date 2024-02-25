@@ -68,6 +68,24 @@ const SBFileUploaderHOC = function (WrappedComponent) {
         }
         // step 2: create a FileReader and an <input> element, and issue a
         // pseudo-click to it. That will open the file chooser dialog.
+        createLocalFileObjects () {
+            // redo step 7, in case it got skipped last time and its objects are
+            // still in memory
+            this.removeFileObjects();
+            // create fileReader
+            this.fileReader = new FileReader();
+            this.fileReader.onload = this.onload;
+            // create <input> element and add it to DOM
+            this.inputElement = document.createElement('input');
+            this.inputElement.accept = '.sb,.sb2,.sb3';
+            this.inputElement.style = 'display: none;';
+            this.inputElement.type = 'file';
+            this.inputElement.onchange = this.handleChange; // connects to step 3
+            document.body.appendChild(this.inputElement);
+            // simulate a click to open file chooser dialog
+            this.inputElement.click();
+        }
+
         createFileObjects () {
             // redo step 7, in case it got skipped last time and its objects are
             // still in memory
@@ -226,6 +244,7 @@ const SBFileUploaderHOC = function (WrappedComponent) {
                 <React.Fragment>
                     <WrappedComponent
                         onStartSelectingFileUpload={this.handleStartSelectingFileUpload}
+                        onStartLocalFileUpload={this.createLocalFileObjects}
                         {...componentProps}
                     />
                 </React.Fragment>
