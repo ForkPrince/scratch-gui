@@ -63,6 +63,7 @@ const SBFileUploaderHOC = function (WrappedComponent) {
         }
         // step 1: this is where the upload process begins
         handleStartSelectingFileUpload () {
+            console.log("SELECT FILE UPLOAD!")
             this.createFileObjects(); // go to step 2
         }
         // step 2: create a FileReader and an <input> element, and issue a
