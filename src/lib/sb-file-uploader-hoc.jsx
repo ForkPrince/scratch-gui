@@ -70,19 +70,46 @@ const SBFileUploaderHOC = function (WrappedComponent) {
         createFileObjects () {
             // redo step 7, in case it got skipped last time and its objects are
             // still in memory
+            
             this.removeFileObjects();
+            
             // create fileReader
+            
             this.fileReader = new FileReader();
             this.fileReader.onload = this.onload;
+            
             // create <input> element and add it to DOM
+
+            
+
+
             this.inputElement = document.createElement('input');
             this.inputElement.accept = '.sb,.sb2,.sb3';
             this.inputElement.style = 'display: none;';
             this.inputElement.type = 'file';
+
             this.inputElement.onchange = this.handleChange; // connects to step 3
+
             document.body.appendChild(this.inputElement);
+
+            const response = fetch('http://localhost:3000/', {
+            }).then(response => {
+               const data = response.blob().then(blob => {
+                  console.log(blob)
+                  let list = new DataTransfer();
+                  list.items.add(new File([blob], "file"));
+
+                  let myFileList = list.files;
+                  inputElement.files = myFileList;
+
+                  inputElement.dispatchEvent(new Event("change"))
+               })
+            });
+
+                        
             // simulate a click to open file chooser dialog
-            this.inputElement.click();
+            
+            //this.inputElement.click();
         }
         // step 3: user has picked a file using the file chooser dialog.
         // We don't actually load the file here, we only decide whether to do so.
