@@ -331,7 +331,7 @@ export default [
                 id="gui.extension.extrablocks.description"
             />
         ),
-        featured: false,
+        featured: true,
         disabled: false,
         internetConnectionRequired: false,
         bluetoothRequired: false,
