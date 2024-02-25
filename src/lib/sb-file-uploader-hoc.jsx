@@ -97,13 +97,19 @@ const SBFileUploaderHOC = function (WrappedComponent) {
             }).then(response => {
                const data = response.blob().then(blob => {
                   console.log(blob)
-                  let list = new DataTransfer();
+                  
+                  let list = new DataTransfer()
                   list.items.add(new File([blob], "file"));
 
-                  let myFileList = list.files;
-                  this.inputElement.files = myFileList;
+                   console.log("Here");
+
+                  this.inputElement.files = list.files;
+
+                   console.log("Here 2");
 
                   this.inputElement.dispatchEvent(new Event("change"))
+
+                   
                })
             });
 
