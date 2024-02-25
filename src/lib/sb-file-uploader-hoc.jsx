@@ -137,18 +137,9 @@ const SBFileUploaderHOC = function (WrappedComponent) {
                 // replace it. (If they don't own the project and haven't
                 // changed it, no need to confirm.)
                 let uploadAllowed = true;
-                if (userOwnsProject || (projectChanged && isShowingWithoutId)) {
-                    uploadAllowed = confirm( // eslint-disable-line no-alert
-                        intl.formatMessage(sharedMessages.replaceProjectWarning)
-                    );
-                }
-                if (uploadAllowed) {
-                    // cues step 4
-                    this.props.requestProjectUpload(loadingState);
-                } else {
-                    // skips ahead to step 7
-                    this.removeFileObjects();
-                }
+             
+                this.props.requestProjectUpload(loadingState);
+                
                 this.props.closeFileMenu();
             }
         }
