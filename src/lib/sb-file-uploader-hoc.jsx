@@ -48,7 +48,6 @@ const SBFileUploaderHOC = function (WrappedComponent) {
                 'getProjectTitleFromFilename',
                 'handleFinishedLoadingUpload',
                 'handleStartSelectingFileUpload',
-                'handleStartLocalFileUpload',
                 'handleChange',
                 'onload',
                 'removeFileObjects'
@@ -65,9 +64,9 @@ const SBFileUploaderHOC = function (WrappedComponent) {
         // step 1: this is where the upload process begins
         handleStartSelectingFileUpload (type) {
             console.log("SELECT FILE UPLOAD!")
-            // if (type) this.createLocalFileObjects();
-            // else this.createFileObjects(); // go to step 2
-            this.createFileObjects();
+            if (type) this.createLocalFileObjects();
+            else this.createFileObjects(); // go to step 2
+            // this.createFileObjects();
         }
 
         // step 2: create a FileReader and an <input> element, and issue a
