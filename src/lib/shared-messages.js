@@ -30,5 +30,10 @@ export default defineMessages({
         id: 'gui.sharedMessages.loadFromComputerTitle',
         defaultMessage: 'Load from your computer',
         description: 'Title for uploading a project from your computer'
+    },
+    loadFromServer: {
+        id: 'gui.sharedMessages.loadFromServer',
+        defaultMessage: 'Load from your server',
+        description: 'Title for uploading a project from your server'
     }
 });

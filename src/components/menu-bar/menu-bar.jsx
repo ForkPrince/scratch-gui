@@ -497,10 +497,10 @@ class MenuBar extends React.Component {
                                         <MenuItem
                                             onClick={this.props.onStartSelectingFileUpload}
                                         >
-                                            {this.props.intl.formatMessage(sharedMessages.loadFromComputerTitle)}
+                                            {this.props.intl.formatMessage(sharedMessages.loadFromServer)}
                                         </MenuItem>
                                         <MenuItem
-                                            onClick={this.props.onStartLocalFileUpload}
+                                            onClick={this.props.onStartSelectingFileUpload(true)}
                                         >
                                             {this.props.intl.formatMessage(sharedMessages.loadFromComputerTitle)}
                                         </MenuItem>
@@ -918,7 +918,6 @@ MenuBar.propTypes = {
     onSetTimeTravelMode: PropTypes.func,
     onShare: PropTypes.func,
     onStartSelectingFileUpload: PropTypes.func,
-    onStartLocalFileUpload: PropTypes.func,
     onToggleLoginOpen: PropTypes.func,
     projectTitle: PropTypes.string,
     renderLogin: PropTypes.func,

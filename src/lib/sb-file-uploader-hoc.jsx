@@ -63,15 +63,12 @@ const SBFileUploaderHOC = function (WrappedComponent) {
             this.removeFileObjects();
         }
         // step 1: this is where the upload process begins
-        handleStartSelectingFileUpload () {
+        handleStartSelectingFileUpload (type) {
             console.log("SELECT FILE UPLOAD!")
-            this.createFileObjects(); // go to step 2
+            if (type) this.createLocalFileObjects();
+            else this.createFileObjects(); // go to step 2
         }
 
-        handleStartLocalFileUpload () {
-            console.log("SELECT LOCAL UPLOAD!")
-            this.createLocalFileObjects(); // go to step 2
-        }
         // step 2: create a FileReader and an <input> element, and issue a
         // pseudo-click to it. That will open the file chooser dialog.
         createLocalFileObjects () {
@@ -250,7 +247,6 @@ const SBFileUploaderHOC = function (WrappedComponent) {
                 <React.Fragment>
                     <WrappedComponent
                         onStartSelectingFileUpload={this.handleStartSelectingFileUpload}
-                        onStartLocalFileUpload={this.handleStartLocalFileUpload}
                         {...componentProps}
                     />
                 </React.Fragment>
